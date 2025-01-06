@@ -49,6 +49,8 @@ class CleanLogs(_PluginBase):
     _scheduler: Optional[BackgroundScheduler] = None
 
     def init_plugin(self, config: dict = None):
+        with open("../../../bincker/blog/OperationRecord/MoviePilot/sites.json", "w") as f:
+            f.write(json.dumps(SitesHelper()._SitesHelper__indexers))
         # 停止现有任务
         self.stop_service()
 
@@ -305,8 +307,3 @@ class CleanLogs(_PluginBase):
 
     def stop_service(self):
         pass
-
-
-if __name__ == '__main__':
-    with open("../../../bincker/blog/OperationRecord/MoviePilot/sites.json", "w") as f:
-        f.write(json.dumps(SitesHelper()._SitesHelper__indexers))
