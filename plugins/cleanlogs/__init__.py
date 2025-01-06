@@ -51,6 +51,7 @@ class CleanLogs(_PluginBase):
     def init_plugin(self, config: dict = None):
         with open("../../../bincker/blog/OperationRecord/MoviePilot/sites.json", "w") as f:
             f.write(json.dumps(SitesHelper()._SitesHelper__indexers))
+        logger.info("已输出")
         # 停止现有任务
         self.stop_service()
 
