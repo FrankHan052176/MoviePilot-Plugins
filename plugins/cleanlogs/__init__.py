@@ -3,6 +3,8 @@ from datetime import datetime, timedelta
 import pytz
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
+import json
+from app.helper.rsites.sites import SitesHelper
 
 from pathlib import Path
 from typing import List, Tuple, Dict, Any, Optional
@@ -303,3 +305,8 @@ class CleanLogs(_PluginBase):
 
     def stop_service(self):
         pass
+
+
+if __name__ == '__main__':
+    with open("../../../bincker/blog/OperationRecord/MoviePilot/sites.json", "w") as f:
+        f.write(json.dumps(SitesHelper()._SitesHelper__indexers))
